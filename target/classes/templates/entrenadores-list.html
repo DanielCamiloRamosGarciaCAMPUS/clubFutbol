@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <title>Entrenadores</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Titillium Web", sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("https://w0.peakpx.com/wallpaper/569/800/HD-wallpaper-club-atletico-bucaramanga-leather-texture-logo-green-yellow-lines-colombian-football-club-emblem-liga-aguila-categoria-primera-a-bucaramanga-colombia-football.jpg");
+            background-size: cover;
+            background-position: center;
+            color: black !important;
+        }
+
+        .container {
+            background-color: rgba(255, 251, 0, 0.8);
+            padding: 30px;
+            color: black;
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: black;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table thead th {
+            background-color: transparent;
+            color: rgb(41, 49, 42);
+            padding: 10px;
+            text-align: center;
+            border-bottom: 2px solid white;
+        }
+
+        table tbody td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid white;
+        }
+
+        .btn {
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .btn-outline-primary {
+            background-color: #4a9466;
+            border-color: #4a9466;
+            color: #ffffff;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #000;
+            color: #ffffff;
+        }
+
+        .btn-outline-success {
+            background-color: #272c0f;
+            border-color: #272c0f;
+            color: #ffffff;
+        }
+
+        .btn-outline-success:hover {
+            background-color: #0400ff;
+            border-color: #0400ff;
+        }
+
+        .btn-info,
+        .btn-danger {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .btn-info {
+            background-color: #3b7e3f;
+            border-color: #3b7e3f;
+            color: #ffffff;
+        }
+
+        .btn-info:hover {
+            background-color: #03ff4f;
+            border-color: #0080ff;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+            color: #ffffff;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #c82333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Entrenadores</h2>
+        <table class="table table-hover" id="trainers-table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                    <th>Nacionalidad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="entrenador: ${entrenadores}">
+                    <td th:text="${entrenador.nombre}"></td>
+                    <td th:text="${entrenador.apellido}"></td>
+                    <td th:text="${entrenador.edad}"></td>
+                    <td th:text="${entrenador.nacionalidad}"></td>
+                    <td>
+                        <a class="btn btn-info btn-sm" th:href="@{'/entrenadores/edit/' + ${entrenador.id}}">Editar</a>
+                        <a class="btn btn-danger btn-sm" th:href="@{'/entrenadores/delete/' + ${entrenador.id}}"
+                            onclick="return confirm('¿Estás seguro de eliminar este entrenador?');">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-center">
+            <div class="p-3">
+                <a th:href="@{/entrenadores/new}" class="btn btn-outline-primary">Insertar</a>
+            </div>
+            <div class="p-3">
+                <a th:href="@{/index}" class="btn btn-outline-success">Inicio</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+</body>
+
+</html>

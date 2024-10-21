@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALIANZA AURIVERDE - CLUBES DE FUTBOL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon"
+        href="https://upload.wikimedia.org/wikipedia/commons/0/08/Escudo_Atletico_Bucaramanga_Campe%C3%B3n_2024_I.png"
+        type="image/x-icon">
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/e3577592180027.5e447959bed59.png");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: black;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .user-info {
+            margin-bottom: 20px;
+        }
+
+        .user-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 2px solid #fff;
+        }
+
+        .user-name {
+            font-size: 20px;
+        }
+
+        .dashboard-tiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .tile-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .tile {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            width: 100%;
+            height: 200px;
+            /* Establece una altura fija para todas las tarjetas */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .tile h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .tile-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        .tile-info p {
+            font-size: 16px;
+            color: #555;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Cabecera de la página -->
+    <header>
+        <h1 style="color: green;font-size: 50px;">ALIANZA AURIVERDE - CLUBES DE FUTBOL</h1>
+        <div class="user-info">
+            <p class="user-name" style="color: rgb(255, 255, 255);font-size: 50px;">Atletico Bucaramanga</p>
+        </div>
+    </header>
+
+    <!-- Sección de botones/tarjetas -->
+    <section class="dashboard-tiles">
+        <a th:href="@{/asociaciones/}" class="tile-link">
+            <div class="tile">
+                <img src="https://cdn.icon-icons.com/icons2/2437/PNG/512/partnership_icon_148364.png" alt="Icono"
+                    class="tile-icon">
+                <h3>ASOCIACIONES</h3>
+                <p>Ver y agregar asociaciones</p>
+            </div>
+        </a>
+        <a th:href="@{/entrenadores/}" class="tile-link">
+            <div class="tile">
+                <img src="https://cdn-icons-png.flaticon.com/512/353/353557.png" alt="Icono" class="tile-icon">
+                <h3>ENTRENADORES</h3>
+                <p>Ver y agregar entrenadores</p>
+            </div>
+        </a>
+        <a th:href="@{/competiciones/}" class="tile-link">
+            <div class="tile">
+                <img src="https://cdn-icons-png.flaticon.com/512/2075/2075920.png" alt="Icono" class="tile-icon">
+                <h3>COMPETICIONES</h3>
+                <p>Ver y agregar competiciones</p>
+            </div>
+        </a>
+        <a th:href="@{/clubes/}" class="tile-link">
+            <div class="tile">
+                <img src="https://cdn-icons-png.flaticon.com/512/919/919510.png" alt="Icono" class="tile-icon">
+                <h3>CLUBES</h3>
+                <p>Ver y agregar clubes</p>
+            </div>
+        </a>
+        <a th:href="@{/jugadores/}" class="tile-link">
+            <div class="tile">
+                <img src="https://cdn-icons-png.flaticon.com/512/53/53254.png" alt="Icono" class="tile-icon">
+                <h3>JUGADORES</h3>
+                <p>Ver y agregar jugadores</p>
+            </div>
+        </a>
+    </section>
+</body>
+
+</html>
